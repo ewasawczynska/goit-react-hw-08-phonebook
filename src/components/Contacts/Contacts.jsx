@@ -2,8 +2,8 @@ import { Button } from 'components/Button';
 import { StyledContact, StyledLoading } from './Contacts.styled';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/operations';
-import { selectContacts, selectFilter, selectIsLoading } from '../../redux/selectors';
+import { deleteContact } from '../../redux/contacts/operations';
+import { selectContacts, selectFilter, selectIsLoading } from '../../redux/contacts/selectors';
 
 export const Contacts = () => {
   const contacts = useSelector(selectContacts);
