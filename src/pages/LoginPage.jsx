@@ -5,7 +5,7 @@ const LoginPage = () => {
   return (
     <HelmetProvider>
       <Helmet>
-        <title>Login</title>
+        <title>phonebook | login</title>
       </Helmet>
       <Login />
       </HelmetProvider>

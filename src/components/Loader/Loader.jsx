@@ -1,10 +1,10 @@
 import { Hearts } from 'react-loader-spinner';
-import { Container } from 'components/Container';
+import { StyledLoader } from './Loader.styled';
 
 export const Loader = () => {
   return (
     <>
-<Container>
+<StyledLoader>
 <Hearts 
   height="200"
   width="500"
@@ -14,7 +14,7 @@ export const Loader = () => {
   wrapperClass=""
   visible={true}
 />
-</Container>
+</StyledLoader>
 </>
   );
 };

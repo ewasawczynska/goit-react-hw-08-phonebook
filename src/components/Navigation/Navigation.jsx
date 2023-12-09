@@ -8,7 +8,7 @@ export const Navigation = () => {
   return (
     <Header>
       <Nav>
-          <Link to="/">Home</Link>
+          <Link to="/">• h o m e •</Link>
           {isLoggedIn && (<Link to="/phonebook">Phonebook</Link>)}
       </Nav>
     </Header>

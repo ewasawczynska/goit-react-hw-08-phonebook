@@ -1,3 +1,1 @@
-import { AuthNav } from './AuthNav';
-
-export { AuthNav };
+export * from "./AuthNav";

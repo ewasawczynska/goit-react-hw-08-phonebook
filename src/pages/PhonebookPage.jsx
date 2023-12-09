@@ -18,7 +18,7 @@ export default function PhonebookPage() {
   return (
     <HelmetProvider>
       <Helmet>
-        <title>Your phonebook</title>
+        <title>your phonebook</title>
       </Helmet>
       <ContactForm />
       <div>{isLoading && <Loader/>}</div>
