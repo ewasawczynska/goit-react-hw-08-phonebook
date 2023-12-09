@@ -1,13 +1,15 @@
 import { Register } from 'components/Register';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-export const RegisterPage = () => {
+const RegisterPage = () => {
   return (
-    <>
+    <HelmetProvider>
       <Helmet>
         <title>Register</title>
       </Helmet>
       <Register />
-    </>
+      </HelmetProvider>
   );
 };
+
+export default RegisterPage;

@@ -11,16 +11,14 @@ const LoginPage = lazy(() => import('../pages/LoginPage'));
 const PhonebookPage = lazy(() => import('../pages/PhonebookPage'));
 
 export const App = () => {
-
   const { isRefreshing } = useAuth();
-
   return isRefreshing ? (
     <Loader />
   ) : (
+    <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
           <Route
           path="/register"
           element={
@@ -41,6 +39,7 @@ export const App = () => {
         />
         </Route>
       </Routes>
+    </>
   ); 
 };
 

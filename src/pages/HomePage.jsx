@@ -1,13 +1,15 @@
-import { Home } from 'components';
-import { Helmet } from 'react-helmet';
+import { Home } from '../components';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
-    <>
+    <HelmetProvider>
       <Helmet>
         <title>Home</title>
       </Helmet>
       <Home />
-    </>
+      </HelmetProvider> 
   );
 };
+
+export default HomePage;

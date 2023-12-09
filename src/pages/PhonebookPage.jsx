@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ContactForm } from 'components/ContactForm';
@@ -16,13 +16,13 @@ export default function PhonebookPage() {
   }, [dispatch]);
 
   return (
-    <>
+    <HelmetProvider>
       <Helmet>
         <title>Your phonebook</title>
       </Helmet>
       <ContactForm />
       <div>{isLoading && <Loader/>}</div>
       <Contacts />
-    </>
+      </HelmetProvider>
   );
 }
