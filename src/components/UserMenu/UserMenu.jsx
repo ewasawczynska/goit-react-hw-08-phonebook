@@ -1,9 +1,17 @@
-const { useSelector } = require('react-redux');
-const { selectUserName } = require('redux/contacts/selectors');
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../redux/auth/operations';
+import { useAuth } from 'hooks';
 
-import { useSelector } from 'react-redux';
-import { selectUserName } from 'redux/contacts/selectors';
+export const UserMenu = () => {
+  const dispatch = useDispatch();
+  const { user } = useAuth();
 
-const UserMenu = () => {
-  const userName = useSelector(selectUserName);
+  return (
+    <div>
+      <p>Welcome, {user.name}</p>
+      <button type="button" onClick={() => dispatch(logOut())}>
+        Logout
+      </button>
+    </div>
+  );
 };
