@@ -4,7 +4,7 @@ import { HomeText } from "./Home.styled";
 export const Home = () => {
     return (
       <Container>
-        <HomeText>Witaj!</HomeText>
+        <HomeText>Welcome in your phonebook! Let's phone someone.</HomeText>
       </Container>
     );
   };

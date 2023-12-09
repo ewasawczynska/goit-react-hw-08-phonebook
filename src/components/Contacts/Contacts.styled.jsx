@@ -5,9 +5,3 @@ export const StyledContact = styled.li`
   list-style: none;
   padding-bottom: 5px;
 `;
-
-export const StyledLoading = styled.p`
-  color: grey;
-  font-size: 24px;
-  font-style: italic;
-`

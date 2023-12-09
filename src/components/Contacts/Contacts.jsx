@@ -1,9 +1,10 @@
 import { Button } from 'components/Button';
-import { StyledContact, StyledLoading } from './Contacts.styled';
+import { StyledContact } from './Contacts.styled';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
 import { selectContacts, selectFilter, selectIsLoading } from '../../redux/contacts/selectors';
+import { Loader } from 'components/Loader';
 
 export const Contacts = () => {
   const contacts = useSelector(selectContacts);
@@ -19,15 +20,21 @@ export const Contacts = () => {
 
   const filteredContacts = getFilteredContacts();
 
+  const handleDelete = id => {
+    const deletedContact = contacts.find(contact => contact.id === id);
+    dispatch(deleteContact(id));
+    alert(`${deletedContact.name} was removed from phonebook. Hope you won't miss this person.`)
+  };
+
   return (
     <>
-   {isLoading ? (<StyledLoading>Loading...</StyledLoading>) : (<ul>
+   {isLoading ? (<Loader/>) : (<ul>
     {filteredContacts.map(contact => (
       <StyledContact key={contact.id}>
       {contact.name}: {contact.number}
       <Button
         type="button"
-        onClick={() => dispatch(deleteContact(contact.id))}
+        onClick={() => handleDelete(contact.id)}
         colorchange="red"
         marginchange="10px"
       >

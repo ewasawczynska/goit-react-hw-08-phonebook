@@ -23,7 +23,7 @@ export const ContactForm = () => {
         contacts.find(contact => contact.name.toLowerCase() ===
         name.toLowerCase())
       ) {
-        alert(`${newContact.name} already exists!`);
+        alert(`${newContact.name} is in your phonebook! Call this person soon.`);
         } else {
           dispatch(addContact(newContact));
         }
