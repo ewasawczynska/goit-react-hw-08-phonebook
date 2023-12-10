@@ -1,5 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
+import { Container } from 'components/Container';
+import { StyledLoginText, StyledLoginText2, StyledForm, StyledLabel, StyledInput, StyledButton, Link } from './Login.styled';
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -17,16 +19,20 @@ export const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <Container>
+      <StyledLoginText>Hello again. Please enter your data below.</StyledLoginText>
+    <StyledForm onSubmit={handleSubmit}>
+      <StyledLabel>
+        email
+        <StyledInput type="email" name="email"/>
+      </StyledLabel>
+      <StyledLabel>
+        password
+        <StyledInput type="password" name="password"/>
+      </StyledLabel>
+      <StyledButton type="submit">l o g i n</StyledButton>
+    </StyledForm>
+    <StyledLoginText2>Are you new here? There you can <Link to="/register">create your personal account</Link> ✨</StyledLoginText2>
+    </Container>
   );
 };

@@ -1,10 +1,10 @@
-import { Button } from 'components/Button';
-import { StyledContact } from './Contacts.styled';
+import { StyledContact, StyledList, StyledText, StyledButton, StyledName, StyledNumber } from './Contacts.styled';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
 import { selectContacts, selectFilter, selectIsLoading } from '../../redux/contacts/selectors';
 import { Loader } from 'components/Loader';
+import { InputFiltr } from 'components/InputFiltr';
 
 export const Contacts = () => {
   const contacts = useSelector(selectContacts);
@@ -23,26 +23,25 @@ export const Contacts = () => {
   const handleDelete = id => {
     const deletedContact = contacts.find(contact => contact.id === id);
     dispatch(deleteContact(id));
-    alert(`${deletedContact.name} was removed from phonebook. Hope you won't miss this person.`)
+    alert(`${deletedContact.name} was removed from phonebook. Hope you won't miss this person. 🔴`)
   };
 
   return (
     <>
-   {isLoading ? (<Loader/>) : (<ul>
+   {isLoading ? (<Loader/>) : (<>
+    <StyledText>contacts list ☎</StyledText>
+    <InputFiltr></InputFiltr>
+    <StyledList>
     {filteredContacts.map(contact => (
       <StyledContact key={contact.id}>
-      {contact.name}: {contact.number}
-      <Button
-        type="button"
+      <StyledName>{contact.name}</StyledName>
+      <StyledNumber>{contact.number}</StyledNumber>
+      <StyledButton
         onClick={() => handleDelete(contact.id)}
-        colorchange="red"
-        marginchange="10px"
-      >
-        Delete
-      </Button>
+      >❌</StyledButton>
     </StyledContact>
     ))}
-    </ul>)}
+    </StyledList></>)}
     </>
   );
 }

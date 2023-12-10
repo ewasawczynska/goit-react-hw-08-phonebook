@@ -1,5 +1,4 @@
-import { StyledForm, StyledInput, StyledLabel } from './ContactForm.styled';
-import { Button } from 'components/Button';
+import { StyledForm, StyledInput, StyledLabel, StyledRoundContainer, StyledButton } from './ContactForm.styled';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,17 +22,19 @@ export const ContactForm = () => {
         contacts.find(contact => contact.name.toLowerCase() ===
         name.toLowerCase())
       ) {
-        alert(`${newContact.name} is in your phonebook! Call this person soon.`);
+        alert(`${newContact.name} is in your phonebook! Call this person soon. 💋`);
         } else {
           dispatch(addContact(newContact));
+          alert(`${newContact.name}'s number was added to your phonebook! ✅`);
         }
 
   };
 
   return (
+    <StyledRoundContainer>
     <StyledForm onSubmit={onSubmit}>
       <StyledLabel>
-        Name
+        name
         <StyledInput
           type="text"
           name="name"
@@ -45,7 +46,7 @@ export const ContactForm = () => {
         />
       </StyledLabel>
       <StyledLabel>
-        Number
+        number
         <StyledInput
           type="tel"
           name="number"
@@ -56,7 +57,8 @@ export const ContactForm = () => {
           onChange={e => setNumber(e.target.value)}
         />
       </StyledLabel>
-      <Button type="submit">Add contact</Button>
+      <StyledButton type="submit">add contact</StyledButton>
     </StyledForm>
+    </StyledRoundContainer>
   );
 };

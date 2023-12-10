@@ -1,4 +1,3 @@
-import { Button } from './Button';
 import { ContactForm } from './ContactForm';
 import { Contacts } from './Contacts';
 import { Container } from './Container';
@@ -11,7 +10,6 @@ import { Section } from './Section';
 import { SharedLayout } from './SharedLayout';
 
 export {
-  Button,
   ContactForm,
   Contacts,
   Container,
